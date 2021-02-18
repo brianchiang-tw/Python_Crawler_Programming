@@ -1,0 +1,4 @@
+#LWP-Cookies-2.0
+Set-Cookie3: MyCookie=helloworld; path="/"; domain="127.0.0.1"; path_spec; discard; version=0
+Set-Cookie3: name='cuteSquirrel'; path='/'; domain="127.0.0.1"; path_spec; discard; version=0
+
