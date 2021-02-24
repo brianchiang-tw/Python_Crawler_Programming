@@ -52,3 +52,74 @@ print( '->'.join( node.tag for node in target_node ) )
 
 # ---------------------------------
 print('\n---')
+
+target_node = html.xpath('//li[1]/ancestor::*[@class="item"]')
+
+# body, ul
+print( ', '.join( node.tag for node in target_node) )
+
+# ---------------------------------
+print('\n---')
+
+target_node = html.xpath('//li[4]/attribute::*')
+
+# item4, 168
+print(', '.join( target_node))
+
+# ---------------------------------
+print('\n---')
+
+target_node = html.xpath('//li[3]/child::*')
+
+'''
+URL:  https://www.pchome.com.tw
+Text:   PCHOME
+URL:  https://www.mit.edu
+Text:   麻省理工
+'''
+for node in target_node:
+
+    print('URL: ', node.get('href') )
+    print('Text: ', node.text )
+
+# ---------------------------------
+print('\n---')
+
+target_node = html.xpath('//li[2]/descendant::value')
+
+'''
+URL: https://www.hinet.net
+URL: https://www.yahoo.com
+'''
+for node in target_node:
+
+    print('URL:', node.get('url') )
+
+# ---------------------------------
+print('\n---')
+
+
+target_node = html.xpath('//li[1]/following::*')
+
+# li, a, value, value, li, a, a, li, a, li, a
+print(', '.join( node.tag for node in target_node) )
+
+
+# ---------------------------------
+print('\n---')
+
+
+target_node = html.xpath('//li[1]/following::*[ position() > 4]')
+
+# li, a, a, li, a, li, a
+print(', '.join( node.tag for node in target_node) )
+
+
+# ---------------------------------
+print('\n---')
+
+
+target_node = html.xpath('//li[1]/following-sibling::*')
+
+# li, li, li, li
+print(', '.join( node.tag for node in target_node) )
